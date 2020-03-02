@@ -1,0 +1,25 @@
+{% extends 'base.html' %}	
+{%block content%}
+	<div class="wrapper">
+        <header class="main-head">Bienvenido  </header>
+       
+        <article class="content">
+                
+                <h1>UPAEP</h1>
+
+                <form class="login" action="" method="POST"> {% csrf_token %}
+                    
+                    <div><label for="username">Username</label>
+                      <input type="text" name="username" id="username"></div>
+                    <div><label for="password">Password</label>
+                      <input type="password" name="password" id="password"></div>
+                    
+                    <div class="actions">
+                      <input type="submit" name="login" value="Login">
+                    </div>
+                </form>
+			</form>			
+        </article> 
+
+	</div>
+{% endblock %}

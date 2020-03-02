@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Here is  the list of items {{request.user.username}}</h2>
+
+{% for iterator in object_list %}
+	<p><a href="{{iterator.get_absolute_url}}">{{ iterator.nombre }}</a> {{iterator.proyecto}} {{iterator.precio}} {{iterator.total}}</p>
+
+{% endfor %}
+{% endblock content %}

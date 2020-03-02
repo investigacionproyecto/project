@@ -1,13 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {% block content  %}
-    {% endblock content %}
-</body>
+<html>
+
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<link rel="stylesheet" href="{% static '/grid.css' %}"/>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+		<!-- XDSoft DateTimePicker -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+		<title> Hola Ma</title>
+	</head>
+	<body>	
+		<div class="wrapper">
+        <header class="main-head">{% include 'navbar.html'%}</header>
+        	
+        <article class="content">
+		
+		
+		{% block content %}
+
+		{% endblock%}
+  		</article>
+        <aside class="side"></aside>
+        <div class="ad"></div>
+        <footer class="main-footer"></footer>
+		</div>
+
+		
+	</body>
+		
+	<script src="{% static 'js/myscript.js' %}"></script>
 </html>

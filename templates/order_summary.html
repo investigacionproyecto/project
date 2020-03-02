@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main>
+    <div class="container">
+
+    <div class="table-responsive text-nowrap">
+    <h2>Orden</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre </th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Cantidad Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for iterator in object.items.all %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ iterator.nombre }}</td>
+            <td>{{ iterator.precio }}</td>
+            <td>{{ iterator.unidad }}</td>
+           
+            <td>{{ iterator.total }} </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan='5'>No hay ningun articulo en tu orden</td>
+        </tr>
+        
+        {% endfor %}
+        
+        {% if object.get_total %}
+        <tr>
+            <td colspan="4"><b>Total</b></td>
+            <td><b>${{ object.get_total }}</b></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+            <a class='btn btn-warning float-right ml-2' href='/checkout/'>Finalizar </a>
+            <a class='btn btn-primary float-right' href='/create/'>Agregar</a>
+            </td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+    </div>
+
+    </div>
+  </main>
+
+{% endblock content %}

@@ -1,0 +1,174 @@
+.main-head {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+  background-color: #efefef;
+}
+.main-nav {
+  grid-area: nav;
+  background-color: #efefef;
+}
+}
+.menu {
+  grid-area: menu;
+  background-color: #efefef;
+}
+
+}
+.ad {
+  grid-area: ad;
+  background-color: #efefef;
+}
+}
+.main-footer {
+  grid-area: footer;
+  background-color: #4d4d4d;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 
+    "header"
+    "nav"
+    "menu"
+    "content"
+    "ad"
+    "footer";
+}
+
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr 3fr;
+
+    grid-template-areas: 
+      "header  header"
+      "nav     nav"
+      "sidebar content"
+      "ad      footer";
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-areas: 
+      "header header  header"
+      "nav    content sidebar"
+      "nav    content ad"
+      "footer footer  footer"
+   }
+   nav ul {
+     flex-direction: column;
+   }
+}
+
+.historial {
+  list-style: none;
+  margin: 1em;
+
+  padding-left: inherit;
+}
+.content {
+
+    display: grid;
+  grid-template-columns: 1fr; 
+  grid-gap: 0.3em 0.6em;
+  grid-auto-flow: row;
+  align-items: center;
+}
+.formgrid {
+  display: grid;
+    grid-template-columns: [labels] auto [controls] 2fr;
+    grid-auto-flow: row;
+    grid-gap: .5em .3em;
+
+   
+  }
+.formgrid > label, .formgrid > fieldset  {
+    grid-column: labels;
+    grid-row: auto;
+  }
+.formgrid > input, 
+.formgrid > select,
+.formgrid > textarea,
+.formgrid > button {
+    grid-column: controls;
+    grid-row: auto;
+    padding: .4em;
+    border: 0;
+  }
+  .formgrid > textarea {
+    min-height: 2em;
+    max-height: 5em;
+    }
+     .formgrid > fieldset {
+    grid-column: span 2;
+  }  
+
+
+
+
+
+/*??????????????????????????*/
+
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color: #ffffff;
+  border-bottom: 2px solid black;
+
+
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  padding:1px;
+  line-height: 0; 
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color:#c62828;
+  color: white;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: #818a8e;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}

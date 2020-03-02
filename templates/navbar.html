@@ -1,0 +1,14 @@
+{% load static %}
+
+ <div class="header">
+ 	<div class="header-logo" >
+ 		<a href="{% url 'core:login' %}" class="logo"> <img src="{% static '/logo.svg' %}"></img> </a>
+ 	</div>
+  
+  <div class="header-right">
+    <a {% if activate == 'create' %}class="active"{% endif %} href="{% url 'core:item-create' %}">Compras</a>
+    <a {% if activate == 'boleto' %}class="active"{% endif %} href="{% url 'core:boleto-create' %}">Boletos</a>
+    <a {% if activate == 'list' %}class="active"{% endif %} href="{% url 'core:boleto-list' %}">Historial de boletos</a>
+    <a href="{% url 'core:logout' %}">Log out</a>
+  </div>
+</div> 

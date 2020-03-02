@@ -2,10 +2,12 @@ import os
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
+import os
+
 DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['206.189.230.5','localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -14,7 +16,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'django.forms',
 ]
 
 MIDDLEWARE = [
@@ -27,7 +34,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
-ROOT_URLCONF = 'demo.urls'
+ROOT_URLCONF = 'compras.urls'
+
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 TEMPLATES = [
     {
@@ -45,6 +54,9 @@ TEMPLATES = [
     },
 ]
 
+WSGI_APPLICATION = 'compras.wsgi.application'
+
+
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -58,11 +70,30 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, 'db.sqlite3')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'compras_project',
+        'USER': 'compras_user',
+        'PASSWORD': 'compras_password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    { 
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    { 
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    { 
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
 
 if ENVIRONMENT == 'production':
     DEBUG = False
@@ -75,3 +106,9 @@ if ENVIRONMENT == 'production':
     SECURE_REDIRECT_EXEMPT = []
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+SITE_ID = 1
