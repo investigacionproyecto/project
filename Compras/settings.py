@@ -7,7 +7,7 @@ import os
 DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
-ALLOWED_HOSTS = ['206.189.230.5','localhost']
+ALLOWED_HOSTS = ['142.93.195.8','localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -34,7 +34,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
-ROOT_URLCONF = 'compras.urls'
+ROOT_URLCONF = 'Compras.urls'
 
 FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
@@ -54,7 +54,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'compras.wsgi.application'
+WSGI_APPLICATION = 'Compras.wsgi.application'
 
 
 LANGUAGE_CODE = 'en-us'
@@ -72,7 +72,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'compras_project',
+        'NAME': 'compras_db',
         'USER': 'compras_user',
         'PASSWORD': 'compras_password',
         'HOST': 'localhost',
